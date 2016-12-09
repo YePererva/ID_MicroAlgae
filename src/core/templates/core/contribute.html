@@ -1,0 +1,49 @@
+{% extends 'core/includes/header.html' %}
+
+{% block title %}
+Contribute
+{% endblock %}
+
+
+{% block content %}
+<div class="row">
+
+	<div class = "col-sm-1"></div>
+
+	<form action="{% url 'core:contribute' %}" method="post" enctype="multipart/form-data"> {% csrf_token %} 
+
+	<div class="col-sm-3">
+		<h4 class="page-header">Help me be better</h4>
+		<br>
+		<p>I want to improve the identification algorythm and I need more training instances for that.</p>
+		<p>If you have any picture with 100% known species on it, please, share it with me!</p>
+		<br>
+
+		<div class="input-group" style  = "width : 100%;">
+			<p> Specify, please, the species name </p>
+  			<input type="text" class="form-control" aria-describedby="basic-addon1" name="specie" placeholder="Required field" required> 
+  			<br><br>
+  			<p>And a brief description of photo origin</p>
+  			<textarea class="form-control" rows="6" placeholder="Done by yourself / Article scan / etc." style  = "width : 100%;"></textarea>
+  			<p> </p>
+  			<p></p>
+		</div>
+
+	</div>
+
+	<div class = "col-sm-1"></div>
+
+	<div class="col-sm-6">
+			<h4 class="page-header">Add your file here</h4>		
+			{{ form.file }}
+			<br>
+			<button type="submit" class="btn btn-default btn-lg btn-block" >
+            	Submit         	
+            </button>
+	</div>
+
+	</form>
+
+	<div class = "col-sm-1"></div>	
+</div>
+{% endblock %}

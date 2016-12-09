@@ -1,0 +1,13 @@
+{% extends 'core/includes/header.html' %}
+
+{% block title %}
+Upload Demo
+{% endblock %}
+
+{% block content %}
+<form action="" method="post" enctype="multipart/form-data">{% csrf_token %}
+
+    {{ form.file }}
+    <input type="submit" value="Submit" />
+</form>
+{% endblock %}

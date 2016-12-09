@@ -1,0 +1,105 @@
+{% extends 'core/includes/header.html' %}
+
+{% block title %}
+About
+{% endblock %}
+
+
+{% block content %}
+<div class = "row">
+
+	<div class = "col-sm-1"></div>
+
+	<div class = "col-md-4">
+		<div class="page-header">
+  			<h1>What is this project about?</h1>
+		</div>
+		<p>Project <b><i>"Algae ID"</i></b> has been created as express-analysis for visual identification of microalgae by it's microscope picture via recognition by trained Neural Network.</p>
+		<br>
+		<p>The web-page format has been choosen to allow using from every platform and OS</p>
+		<br>
+		<p></p>
+
+	</div>
+
+	<div class = "col-sm-1"></div>
+
+	<div class = "col-md-2">
+		<div class="page-header">
+  			<h1>Scripting</h1>
+		</div>
+		{% for item in scripting %}
+			<H4>
+				{{ item.name }}
+					{% if item.version %}
+						<span class="label label-info">{{ item.version }}</span>
+					{% endif %}
+			</H4>
+			{% if item.url %}
+						<a href = "{{ item.url }}"> {{ item.url }}</a>
+					{% endif %}
+		{% endfor %}
+		<br>
+
+
+		<div class="page-header">
+  			<h1>Database</h1>
+		</div>
+		{% for item in databases %}
+			<H4>
+				{{ item.name }}
+					{% if item.version %}
+						<span class="label label-info">{{ item.version }}</span>
+					{% endif %}
+			</H4>
+			{% if item.url %}
+						<a href = "{{ item.url }}"> {{ item.url }}</a>
+					{% endif %}
+		{% endfor %}
+
+
+
+	</div>
+
+	<div class = "col-sm-1"></div>
+
+	<div class = "col-md-2">
+		<div class="page-header">
+  			<h1>Recognition</h1>
+		</div>
+
+		{% for item in recognition %}
+			<H4>
+				{{ item.name }}
+					{% if item.version %}
+						<span class="label label-info">{{ item.version }}</span>
+					{% endif %}
+			</H4>
+			{% if item.url %}
+						<a href = "{{ item.url }}"> {{ item.url }}</a>
+					{% endif %}
+		{% endfor %}
+
+		<br>
+		<div class="page-header">
+  			<h1>Parergon</h1>
+		</div>
+
+		{% for item in parergon %}
+			<H4>
+				{{ item.name }}
+					{% if item.version %}
+						<span class="label label-info">{{ item.version }}</span>
+					{% endif %}
+			</H4>
+			{% if item.url %}
+						<a href = "{{ item.url }}"> {{ item.url }}</a>
+					{% endif %}
+		{% endfor %}
+
+	</div>
+
+	<div class = "col-sm-1"></div>
+	
+</div>
+{% endblock %}
