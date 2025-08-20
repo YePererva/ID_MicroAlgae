@@ -19,8 +19,20 @@ source ./env/bin/activate
 python -m pip install --upgrade pip
 python -m pip install -r ./prerequisites.txt
 
+python ./src/manage.py migrate
+
 python ./src/manage.py runserver
 ```
+
+if running as network-attached instance or virtualized container, use this instead:
+
+```
+sudo firewall-cmd --zone=public --permanent --add-port=8000/tcp
+sudo firewall-cmd --reload
+
+python ./src/manage.py runserver 0.0.0.0:8000
+```
+
 
 ### Deploy on Windows 11
 
@@ -31,6 +43,8 @@ python -m virtualenv .\env
 . .\env\Scripts\activate.ps1
 python -m pip install --upgrade pip
 python -m pip install -r .\prerequisites.txt
+
+python .\src\manage.py migrate
 
 python .\src\manage.py runserver
 ```
