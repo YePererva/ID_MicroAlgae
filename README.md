@@ -2,7 +2,9 @@
 
 Project for visual identification of microalgal cells by submitted picture from microscope camera.
 
-## Deploy on Fedora 42 Server
+## Update from 2025
+
+### Deploy on Fedora 42 Server
 
 ```bash
 sudo dnf up --refresh
@@ -20,7 +22,7 @@ python -m pip install -r ./prerequisites.txt
 python ./src/manage.py runserver
 ```
 
-## Deploy on Windows 11
+### Deploy on Windows 11
 
 ```PowerShell
 cd ~
