@@ -137,7 +137,8 @@ def recognize(request):
 ##############################################################################################################
 
 def identify (image_path):
-	import tensorflow as tf
+	import tensorflow.compat.v1 as tf
+	tf.disable_v2_behavior()
 	# template for output
 	output = []
 	# project_base_dir

@@ -1,4 +1,9 @@
-from django.conf.urls import url, include
+try:
+    from django.conf.urls import include, url
+except ImportError:
+    from django.urls import re_path as url
+    from django.urls import include
+
 from . import views
 from django.conf import settings
 from django.conf.urls.static import static

@@ -5,7 +5,7 @@ Recognize
 {% endblock %}
 
 {% block extras %}
-    {% load static from staticfiles %}
+    {% load static %}
     <script type="text/javascript" src="{% static 'core/js/jquery.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'core/js/cropper.js' %}"></script>
     <script type="text/javascript" src="{% static 'core/js/cropper_extra.js' %}"></script>
@@ -23,7 +23,7 @@ Recognize
 	<div class = "col-sm-6">
         <h4 class="page-header">Uploaded image</h4>
         <div class = "img-container" style="min-height: 85%; min-width : 85%; max-height: 90%; max-width : 90%;">
-            {% load static from staticfiles %}            
+            {% load static %}            
             <img type = "image" class="img-responsive" id="input_image" src="{% static image_src %}" alt="Picture" style="max-width: 100%;" />          
         </div>
 

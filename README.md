@@ -14,8 +14,8 @@ cd ~
 git clone https://github.com/YePererva/ID_MicroAlgae.git
 cd ./ID_MicroAlgae
 
-python -m virtualenv ./venv
-source ./venv/bin/activate
+python -m virtualenv ./env
+source ./env/bin/activate
 python -m pip install --upgrade pip
 python -m pip install -r ./prerequisites.txt
 
@@ -25,11 +25,10 @@ python ./src/manage.py runserver
 ### Deploy on Windows 11
 
 ```PowerShell
-cd ~
 git clone https://github.com/YePererva/ID_MicroAlgae.git
 cd ./ID_MicroAlgae
-python -m virtualenv .\venv
-. .\venv\Scripts\activate.ps1
+python -m virtualenv .\env
+. .\env\Scripts\activate.ps1
 python -m pip install --upgrade pip
 python -m pip install -r .\prerequisites.txt
 
