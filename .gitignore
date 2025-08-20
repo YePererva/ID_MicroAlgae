@@ -1,6 +1,9 @@
 env/
 .env
 ENV/
+venv/
+
+src/core/static/core/images/crops/*
 
 # pyenv
 .python-version
