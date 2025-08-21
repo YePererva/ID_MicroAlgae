@@ -6,11 +6,11 @@ from django.conf import settings
 from PIL import Image
 import os
 
-os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
+#os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
 #os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
-import tensorflow.compat.v1 as tf
-tf.disable_v2_behavior()
+import tensorflow as tf
+#tf.disable_v2_behavior()
 
 static_folder = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'static',)
 ##############################################################################################################
@@ -151,16 +151,16 @@ def identify (image_path):
 	label_file = os.path.join (tf_folder, 'labels.txt')
 	image_file = image_path
 	# read the content of file
-	image_data = tf.gfile.FastGFile (image_file, 'rb').read()
+	image_data = tf.io.gfile.GFile (image_file, 'rb').read()
 	# read labels
-	label_lines = [line.rstrip() for line in tf.gfile.GFile(label_file)]
+	label_lines = [line.rstrip() for line in tf.io.gfile.GFile(label_file)]
 	# load analysis graph
-	with tf.gfile.FastGFile(graph_file, 'rb') as f:
-		graph_def = tf.GraphDef()
+	with tf.io.gfile.GFile(graph_file, 'rb') as f:
+		graph_def = tf.compat.v1.GraphDef()
 		graph_def.ParseFromString(f.read())
 		_ = tf.import_graph_def(graph_def, name='')
 
-	with tf.Session() as sess:
+	with tf.compat.v1.Session() as sess:
 		softmax_tensor = sess.graph.get_tensor_by_name ('final_result:0')
 
 		predictions = sess.run(softmax_tensor, {'DecodeJpeg/contents:0' : image_data})

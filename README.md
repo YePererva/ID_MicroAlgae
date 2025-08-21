@@ -8,7 +8,7 @@ Project for visual identification of microalgal cells by submitted picture from 
 
 ```bash
 sudo dnf up --refresh
-sudo dnf install git python3-pip python3-virtualenv
+sudo dnf install git python3-pip python3-virtualenv -y
 
 cd ~
 git clone https://github.com/YePererva/ID_MicroAlgae.git
