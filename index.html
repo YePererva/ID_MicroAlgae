@@ -211,15 +211,12 @@ Open it in explorer and run the PowerShell from current location (click the righ
 <br><code>python ./src/manage.py migrate</code>
 <br><code>python ./src/manage.py runserver</code>
 
-<br> Now You should have an access to project via browser by entering the address
-<br> <code>127.0.0.1:8080</code>
+<br> Now You should have an access to project via browser by entering the address <code>127.0.0.1:8080</code>
 
-</p><p>Sometimes you might need to add firewall excemptionf for the 8000 port:
+</p><p>Sometimes you might need to add firewall excemption for the 8000 port:
 <br><code>sudo firewall-cmd --zone=public --permanent --add-port=8000/tcp</code>
 <br><code>sudo firewall-cmd --reload</code>
 <br><code>sudo firewall-cmd --runtime-to-permanent</code>
-
-</p><p> There are noticed issues (crashes) when deployed in VirtualMachine in ProxMox 9.0.5 and accessing via network. Mlobably, due to the back compatibility issues with the code of this project as of 2025. Local machines work fine.
 
       </section>
 
