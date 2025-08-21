@@ -4,6 +4,7 @@ ENV/
 venv/
 
 src/core/static/core/images/crops/*
+!src/core/static/core/images/crops/.gitkeep
 
 # pyenv
 .python-version
