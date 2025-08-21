@@ -21,19 +21,12 @@ python -m pip install -r ./prerequisites.txt
 
 python ./src/manage.py migrate
 
-python ./src/manage.py runserver
-```
-
-if running as network-attached instance or virtualized container, use this instead:
-
-```
 sudo firewall-cmd --zone=public --permanent --add-port=8000/tcp
 sudo firewall-cmd --reload
 sudo firewall-cmd --runtime-to-permanent
 
-python ./src/manage.py runserver 0.0.0.0:8000
+python ./src/manage.py runserver
 ```
-
 
 ### Deploy on Windows 11
 
