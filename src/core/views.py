@@ -6,6 +6,12 @@ from django.conf import settings
 from PIL import Image
 import os
 
+os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
+#os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
+
 static_folder = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'static',)
 ##############################################################################################################
 # just a function for files uploading
@@ -137,8 +143,6 @@ def recognize(request):
 ##############################################################################################################
 
 def identify (image_path):
-	import tensorflow.compat.v1 as tf
-	tf.disable_v2_behavior()
 	# template for output
 	output = []
 	# project_base_dir
