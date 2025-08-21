@@ -104,7 +104,7 @@ Pre-trained Neural Network (NN)
 <hr>
 
 <h1>
-<a id="further-work" class="anchor" href="#further-work" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Further work</h1>
+<a id="further-work" class="anchor" href="#further-work" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Potential developments and improvements</h1>
 
 <ul>
 <li>Add identification of multiple objects per photo</li>
@@ -117,15 +117,7 @@ Pre-trained Neural Network (NN)
 <hr>
 
 <h1>
-<a id="testing" class="anchor" href="#testing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Testing</h1>
-
-<p>Current testing version is deployed on <code>c9.io</code>:
-<br><a href="https://id-microalgae-pererva.c9users.io/">https://id-microalgae-pererva.c9users.io/</a></p>
-
-<hr>
-
-<h1>
-<a id="deploying-and-requirements" class="anchor" href="#deploying-and-requirements" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Deploying and requirements</h1>
+<a id="deploying-and-requirements-in-2016" class="anchor" href="#deploying-and-requirements" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Deploying and requirements (as of 2016)</h1>
 
 <p>Project has been tested on Windows 7 ... 10 (64-bit only) and Ubuntu 14.04 ... 16.04 (64-bit only) with Python 3.5.</p>
 
@@ -136,7 +128,7 @@ Pre-trained Neural Network (NN)
 <a href="https://www.python.org/downloads/release/python-352/">https://www.python.org/downloads/release/python-352/</a></p>
 
 <p>Create the folder for your project (let say D:\MicroAlgae_ID)
-Open it in explorer and run the command line from current location (click the right mouse button in explorer windows with pressed Shift-key and choose the Run Command Line here from pop-up menu).
+Open it in explorer and run the command line from current location (click the right mouse button in explorer windows with pressed Shift-key and choose the "Run Command Line here" from pop-up menu).
 Install the virtualenv for python (you can install other packages in system python, but it has conflicts in Windows 8-10, so using of virtual environments is strongly recommended) by running:
 <br><code>pip install virtualenv</code>
 <br>Create the virtual environment:
@@ -171,12 +163,73 @@ Install the virtualenv for python (you can install other packages in system pyth
 </p><p>
 To create the one-click start for project create the run.sh file in convenient for you location with following content:
 <br> <code>source ~\ID_MicroAlgae\env\bin\activate &amp;&amp; python ~\ID_MicroAlgae\src\manage.py runserver</code></p>
+
+<h1>
+<a id="deploying-and-requirements-in-2025" class="anchor" href="#deploying-and-requirements" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Deploying (in 2025)</h1>
+
+<p>Project has been re-checked on Windows 11 and Fedora 42 Server with Python 3.13.7</p>
+
+<h3>
+<a id="deploying-on-windows-11" class="anchor" href="#deploying-on-windows-11" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Deploying on Windows 11:</h3>
+
+<p>Install Python 3.13.7 (other versions were not tested)
+<a href="https://www.python.org/downloads/release/python-3137/">https://www.python.org/downloads/release/python-3137/</a></p>
+
+<p> Download and unpack the repository in to defined folder (per say D:\ID_microalgae)
+Open it in explorer and run the PowerShell from current location (click the right mouse button in explorer windows with pressed Shift-key and choose the "Open PowerShell window here" from pop-up menu).
+<br>
+<br>Install the virtualenv for python by running:
+<br><code>python -m pip install virtualenv </code>
+<br>Create the virtual environment:
+<br><code>python -m virtualenv .\env </code>
+<br>Enter the created environment:
+<br><code>. .\env\Scripts\activate.ps1 </code>
+<br>Install other required packages:
+<br><code>python -m pip install --upgrade pip </code>
+<br><code>python -m pip install .\prerequsites.txt </code>
+<br><code>python .\src\manage.py migrate </code>
+<br><code>python .\src\manage.py runserver </code>
+
+<br> To create the one-click start for project create a <code>run.ps1</code> file in project folder with following content:
+<br><code>. .\env\Scripts\activate.ps1</code> 
+<br><code>python .\src\manage.py runserver</code></p>
+
+<h3>
+<a id="deploying-on-fedora-42" class="anchor" href="#deploying-on-fedora" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Deploying on Fedora 42:</h3>
+
+<p>Download and unpack the repository into defined folder (per say ~/ID_MicroAlgae) and navigate into it:
+<br> <code>cd ~/ID_MicroAlgae</code>
+
+<br> Install the virtualenv, create the environment and activate it:
+<br> <code> sudo dnf install python3-virtualenv python3-pip -y</code>
+<br> <code>python -m virtuaenv ./env</code>
+<br> <code>source ./env/bin/activate</code>
+<br> Install all requirements:
+<br> <code>python -m pip install --upgrade pip</code>
+<br> <code>python -m pip install -r ./prerequisites.txt</code>
+
+<br><code>python ./src/manage.py migrate</code>
+<br><code>python ./src/manage.py runserver</code>
+
+<br> Now You should have an access to project via browser by entering the address
+<br> <code>127.0.0.1:8080</code>
+
+</p><p>Sometimes you might need to add firewall excemptionf for the 8000 port:
+<br><code>sudo firewall-cmd --zone=public --permanent --add-port=8000/tcp</code>
+<br><code>sudo firewall-cmd --reload</code>
+<br><code>sudo firewall-cmd --runtime-to-permanent</code>
+
+</p><p> There are noticed issues (crashes) when deployed in VirtualMachine in ProxMox 9.0.5 and accessing via network. Mlobably, due to the back compatibility issues with the code of this project as of 2025. Local machines work fine.
+
       </section>
+
       <footer>
         <p>Project maintained by <a href="https://github.com/Pererva">Pererva</a></p>
         <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></small></p>
       </footer>
     </div>
+
+
     <!--[if !IE]><script>fixScale(document);</script><![endif]-->
     
   </body>
