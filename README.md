@@ -22,11 +22,14 @@ python -m pip install -r ./prerequisites.txt
 python ./src/manage.py migrate
 
 sudo firewall-cmd --zone=public --permanent --add-port=8000/tcp
+sudo firewall-cmd --zone=public --permanent --add-port=1433/tcp
 sudo firewall-cmd --reload
 sudo firewall-cmd --runtime-to-permanent
 
 python ./src/manage.py runserver
 ```
+
+If running from ProxMox, ensure at least `x86-64-v3` CPU instructions (AVX is needed).
 
 ### Deploy on Windows 11
 
