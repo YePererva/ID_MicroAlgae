@@ -29,6 +29,7 @@ if running as network-attached instance or virtualized container, use this inste
 ```
 sudo firewall-cmd --zone=public --permanent --add-port=8000/tcp
 sudo firewall-cmd --reload
+sudo firewall-cmd --runtime-to-permanent
 
 python ./src/manage.py runserver 0.0.0.0:8000
 ```
