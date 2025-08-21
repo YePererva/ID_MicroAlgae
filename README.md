@@ -32,7 +32,7 @@ python ./src/manage.py runserver
 
 ```PowerShell
 git clone https://github.com/YePererva/ID_MicroAlgae.git
-cd ./ID_MicroAlgae
+cd .\ID_MicroAlgae
 python -m virtualenv .\env
 . .\env\Scripts\activate.ps1
 python -m pip install --upgrade pip
@@ -42,5 +42,3 @@ python .\src\manage.py migrate
 
 python .\src\manage.py runserver
 ```
-
-
